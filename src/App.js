@@ -14,7 +14,7 @@ import ReadMore from "./readmore";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-hotel-app">
     <div className="App">
       <NavBar />
       <Routes>
