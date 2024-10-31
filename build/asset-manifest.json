@@ -1,17 +1,18 @@
 {
   "files": {
     "main.css": "/react-hotel-app/static/css/main.f8ad807a.css",
-    "main.js": "/react-hotel-app/static/js/main.09be4e64.js",
-    "static/js/317.55acd194.chunk.js": "/react-hotel-app/static/js/317.55acd194.chunk.js",
+    "main.js": "/react-hotel-app/static/js/main.0b000daa.js",
+    "static/js/453.0000b17a.chunk.js": "/react-hotel-app/static/js/453.0000b17a.chunk.js",
     "static/media/bootstrap-icons.woff?": "/react-hotel-app/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
     "static/media/bootstrap-icons.woff2?": "/react-hotel-app/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "static/media/Maesso.JPG": "/react-hotel-app/static/media/Maesso.e0be1faa93cff6f5d6df.JPG",
     "index.html": "/react-hotel-app/index.html",
     "main.f8ad807a.css.map": "/react-hotel-app/static/css/main.f8ad807a.css.map",
-    "main.09be4e64.js.map": "/react-hotel-app/static/js/main.09be4e64.js.map",
-    "317.55acd194.chunk.js.map": "/react-hotel-app/static/js/317.55acd194.chunk.js.map"
+    "main.0b000daa.js.map": "/react-hotel-app/static/js/main.0b000daa.js.map",
+    "453.0000b17a.chunk.js.map": "/react-hotel-app/static/js/453.0000b17a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f8ad807a.css",
-    "static/js/main.09be4e64.js"
+    "static/js/main.0b000daa.js"
   ]
 }
