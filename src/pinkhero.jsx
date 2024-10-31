@@ -5,8 +5,6 @@ import {Button, FormControl} from "react-bootstrap";
 
 export const PinkHero = () => 
 {
-
-   {/*Kod från react-bootstrap*/}
 return(
     <div style={{ backgroundColor: '#9E6464', height: '220px', marginBottom: "50px" }} expand="lg" className="d-flex justify-content-center align-items-center">  
       <FormControl

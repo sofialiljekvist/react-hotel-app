@@ -2,7 +2,7 @@
 //importerar navbar, naviggation, logga och länkning
 import React from "react";
 import {Navbar, Nav} from "react-bootstrap";
-import mylogo from "./bilder/mylogo.jpg";
+import Maesso from "./img/Maesso.JPG";
 import { Link } from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ export const NavBar = () =>
   return(
     <Navbar style={{ backgroundColor: '#ffffff' }} expand="lg" className="d-flex">
       <Link to= "/">
-        <img src={mylogo} style={{ height: "60px" }} alt="Logo" />
+        <img src={Maesso} style={{ height: "60px" }} alt="Logo" />
       </Link>
       <Nav
         className="ms-auto my-2 my-lg-0"

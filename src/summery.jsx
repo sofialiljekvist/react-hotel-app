@@ -2,6 +2,7 @@
 //Här har vi återanvänt koden från komponenten confirmation.jsx och stylat den i app.css
 import './App.css';
 
+
 export function Summery() {
   return (
         <div>
@@ -38,8 +39,8 @@ export function Summery() {
                             <td>Resedetaljer</td>
                             <ul>
                                 <li>Villa Trullo</li>
-                                <li>Lanvetter flygplats, Göteborg</li>
-                                <li>5 st personer </li>
+                                <li></li>
+                                <li></li>
                                 <li>2 st rum </li>
                             </ul>
                         </tr>

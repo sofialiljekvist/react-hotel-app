@@ -3,11 +3,14 @@
 import { Card, Row, Col } from "react-bootstrap"; 
 import React from "react";
 import { getHotelData } from "./hoteldata.js";
+import { useParams } from 'react-router-dom';
 
 export const PicAndInfo = () => { 
-  const hotelArray = getHotelData(); // hämtar data från hoteldata.js. 
-  const hotel = hotelArray[0]; // hämtar det första hotellet eftersom vi bara vill visa Villa Trullo här
+  const { hotelID } = useParams();
+  const hotelArray = getHotelData(); // Hämtar all hotelldata ur hoteldata.js
 
+  // Hittar hotellet med det angivna ID:t med hjälp av find. Number talar om att ID:t som ska hämtas är ett nummer. 
+  const hotel = hotelArray.find(hotel => hotel.hotelID === Number(hotelID));
   return (
     <div className="p-3 d-flex justify-content-center pb-5 mb-4"  >
       <Row>
@@ -15,9 +18,21 @@ export const PicAndInfo = () => {
           <Card>
             <Card.Img style={{width: '320px', height: "180px" }} src={hotel.image} />
             <Card.Body style={{ backgroundColor: "#ffffff"}}>
-              <div style={{ height: "70px" }}>
+              <div style={{ height: "150px" }}>
                 <Card.Title>{hotel.title}</Card.Title>
-                <Card.Text style={{ textAlign: "left" }}>{hotel.discription}</Card.Text>
+                <ul>
+                    {hotel.description.map((item, index) => (
+                      <li 
+                        key={index} 
+                        style={{
+                          color: "black", 
+                          listStyle: "disc",
+                          fontSize: "0.8rem"
+                        }}>
+                        {item}
+                      </li> 
+                    ))}
+                  </ul>
               </div>
             </Card.Body>
           </Card>
