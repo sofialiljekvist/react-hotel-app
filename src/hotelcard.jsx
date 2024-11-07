@@ -14,8 +14,8 @@ export const HotelCard = () => {
       <Row>
         {hotelArray.map((hotel) => ( // går igenom varje hotell i listan och visar img, title, subtitle och text för varje hotell.  
           <Col key={hotel.hotelID} md="4" sm="6" xl="4" className="p-3">  
-            <Card>
-              <Card.Img style={{ height: "200px" }} src={hotel.image} />
+            <Card >
+              <Card.Img style={{ height: "200px"}} src={hotel.image} />
               <Card.Body style={{ backgroundColor: "#f1f1f1" }}>
                 <div style={{ height: "200px" }}>
                   <Card.Title>{hotel.title}</Card.Title>

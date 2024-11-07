@@ -6,6 +6,7 @@ import { NavBar } from "./navbar";
 import { Main } from "./main";
 import {Footer} from "./footer";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './scrollTo';
 import BokaResa from "./bokaresa"; 
 import Payment from "./payment";
 import Confirmation from "./confirmation";
@@ -14,7 +15,9 @@ import ReadMore from "./readmore";
 
 function App() {
   return (
+    
     <Router basename="/react-hotel-app">
+       <ScrollToTop />
     <div className="App">
       <NavBar />
       <Routes>
@@ -28,8 +31,6 @@ function App() {
         <Footer />
     </div>
      </Router>
-
-     
   );
 }
 
