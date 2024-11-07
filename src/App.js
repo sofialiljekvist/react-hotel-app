@@ -2,6 +2,7 @@
 //importer bootstrap-icons bibliotek för att kunna använda ikonerna för support (telefon) och logga in (person)//
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css';
+import { useState } from 'react';
 import { NavBar } from "./navbar";
 import { Main } from "./main";
 import {Footer} from "./footer";
@@ -13,19 +14,29 @@ import Confirmation from "./confirmation";
 import ReadMore from "./readmore";
 
 
+
 function App() {
+  const [selectedValue, setSelectedValue] = useState({ departure: '', persons: '' });
+
+  // Funktion för att uppdatera valt värde
+  const handleSelectedValue = (details) => {
+    setSelectedValue((prevDetails) => ({
+      ...prevDetails,
+      ...details
+    }));
+  };
+
   return (
-    
     <Router basename="/react-hotel-app">
        <ScrollToTop />
     <div className="App">
       <NavBar />
       <Routes>
           <Route path="/" element={<Main/>}/>
-          <Route path="/bokaresa/:hotelID" element={<BokaResa />} /> {/* Tar användaren till Boka-vyn med det specifika hotellets picandinfo*/}
+          <Route path="/bokaresa/:hotelID" element={<BokaResa onSelect={handleSelectedValue} />} /> {/* Tar användaren till Boka-vyn med det specifika hotellets picandinfo*/}
             <Route path="/readmore/:hotelID" element={<ReadMore />} />
             {/* Tar användaren till Läs mer-vyn för det valda hotellet*/}
-          <Route path="/payment/:hotelID" element={<Payment />}    /> {/* Tar användaren till Betalnings-vyn */}
+          <Route path="/payment/:hotelID/" element={<Payment selectedValue={selectedValue} />}    /> {/* Tar användaren till Betalnings-vyn */}
           <Route path ="/confirmation" element={<Confirmation />}/> {/* Tar användaren till den sista vyn som är betalningsbekräftelsen */}
         </Routes>
         <Footer />

@@ -3,10 +3,13 @@ import React from "react";
 import {getRoomData} from "./roomdata.js";
 //Importerar card, row, col och form från react-bootstrap biblioteket
 import {Card, Row, Col, Form} from "react-bootstrap";  
-
-export const RoomCard = () => { 
+import { useParams } from 'react-router-dom';
+export const RoomCard = ({onSelect}) => { 
   const roomArray = getRoomData(); //roomArray innehåller all data från roomdata.js. 
-
+  const { roomID } = useParams();
+  const room = roomArray.find(room => room.roomID=== Number(roomID) );
+  const rooms = (e) => {onSelect ({ rooms: e.target.value });
+};
   return (
     <div className="p-5" style={{
         marginBottom: "20px"
@@ -49,7 +52,8 @@ export const RoomCard = () => {
          
           <Form style= {{ display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
             <Form.Label>Antal rum</Form.Label>
-            <Form.Select aria-label="Default select example" className="mb-3" controlId="exampleForm.ControlInput1" style={{
+            <Form.Select onChange={rooms}
+            aria-label="Default select example" className="mb-3" controlId="exampleForm.ControlInput1" style={{
             width: "80px"
             }}>
             <option>-</option>

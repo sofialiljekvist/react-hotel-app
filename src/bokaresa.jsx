@@ -14,7 +14,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-export function BokaResa() {
+export function BokaResa({onSelect}) {
   const { hotelID } = useParams();
   const hotelArray = getHotelData();
   const hotel = hotelArray.find(hotel => hotel.hotelID === Number(hotelID));
@@ -47,10 +47,10 @@ export function BokaResa() {
           <Calender />
         </div>
         <div style={{ flex: 1}}>
-          <TripDetails />
+          <TripDetails onSelect={onSelect} />
         </div>
       </div>
-      <RoomCard/>
+      <RoomCard onSelect={onSelect}/>
       <Extras />
 
         <div className="d-flex justify-content-between mt-4 pb-5 mb-5">

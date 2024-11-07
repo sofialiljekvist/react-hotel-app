@@ -2,13 +2,11 @@
 //Importerar formulär fån react-boostrap biblioteket
 import Form from 'react-bootstrap/Form';
 
+export function TripDetails({onSelect}) {
+    const departure = (e) => {onSelect ({ departure: e.target.value });
+  };
 
-export function pressedButton(selectedValue) {
-  console.log(selectedValue);
-}
-
-export function TripDetails() {
-
+  const persons = (e) => {onSelect ({ persons: e.target.value });}
     return (
     <div style={{
         display: 'flex',           
@@ -37,7 +35,8 @@ export function TripDetails() {
     
         <Form.Group>  
           <Form.Label>Avreseort</Form.Label>
-          <Form.Select onChange={pressedButton} aria-label="Default select example" className="mb-3" controlId="exampleForm.ControlInput1" style={{width: "550px" }}>
+          <Form.Select onChange={departure}
+          className="mb-3" controlId="exampleForm.ControlInput1" style={{width: "550px" }}>
             <option value="">Välj din flygplats</option>
             <option value="Landvetter,Göteborg">Landvetter,Göteborg</option>
             <option value="Kastrup,Köpenhamn">Kastrup,Köpenhamn</option>
@@ -46,7 +45,8 @@ export function TripDetails() {
         </Form.Group>
         <Form.Group>
           <Form.Label>Antal personer </Form.Label>
-          <Form.Select onChange={pressedButton} aria-label="Default select example" className="mb-3" controlId="exampleForm.ControlInput1" style={{width: "550px" }}>
+          <Form.Select onChange={persons}
+          className="mb-3" controlId="exampleForm.ControlInput1" style={{width: "550px" }}>
             <option value="">-</option>
             <option value="1 person">1</option>
             <option value="2 personer">2</option>

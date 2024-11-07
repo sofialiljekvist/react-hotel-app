@@ -8,7 +8,7 @@ import {CardDetails} from "./carddetails.jsx";
 import { PinkHero } from "./pinkhero";
 import { useParams } from 'react-router-dom';
 
-export function Payment() {
+export function Payment({ selectedValue }) {
   const { hotelID } = useParams();
 
   return (
@@ -24,7 +24,7 @@ export function Payment() {
         </h2>
         {/*Renderar komponenterna PinkHero, PicAndInfo, Summery, PaymentDetails, CardDetails och ButtonsThree*/}
       <PicAndInfo hotelID={hotelID} />
-      <Summery />
+      <Summery hotelID={hotelID} selectedValue={ selectedValue }/>
       <PaymentDetails/>
       <CardDetails/>
       <ButtonsThree/>

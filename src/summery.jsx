@@ -1,9 +1,17 @@
 //Komponent i payment.jsx som visar sammanställningen av bokningen
 //Här har vi återanvänt koden från komponenten confirmation.jsx och stylat den i app.css
 import './App.css';
+import { useParams } from 'react-router-dom';
+import { getHotelData } from "./hoteldata.js";
+import { getRoomData } from './roomdata.js';
 
+export function Summery({ selectedValue }) {
+    const { hotelID, roomID } = useParams();
+    const hotelArray = getHotelData(); 
+    const hotel = hotelArray.find(hotel => hotel.hotelID=== Number(hotelID) );
 
-export function Summery() {
+    const roomArray = getRoomData(); //roomArray innehåller all data från roomdata.js. 
+    const room = roomArray.find(room => room.roomID=== Number(roomID) );
   return (
         <div>
             <h2 style={{ 
@@ -38,10 +46,11 @@ export function Summery() {
                         <tr>
                             <td>Resedetaljer</td>
                             <ul>
-                                <li>Villa Trullo</li>
-                                <li></li>
-                                <li></li>
-                                <li>2 st rum </li>
+                                <li>Hotell: { hotel.title}</li>
+                                <li>Avreseort: {selectedValue.departure }</li>
+                                <li>Antal personer: {selectedValue.persons }</li>
+                                <li>Rumstyp: {room.title}</li>
+                                <li>Antal rum: {selectedValue.rooms} </li>
                             </ul>
                         </tr>
 
