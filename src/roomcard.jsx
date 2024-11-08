@@ -3,13 +3,19 @@ import React from "react";
 import {getRoomData} from "./roomdata.js";
 //Importerar card, row, col och form från react-bootstrap biblioteket
 import {Card, Row, Col, Form} from "react-bootstrap";  
-import { useParams } from 'react-router-dom';
+
+
 export const RoomCard = ({onSelect}) => { 
-  const roomArray = getRoomData(); //roomArray innehåller all data från roomdata.js. 
-  const { roomID } = useParams();
-  const room = roomArray.find(room => room.roomID=== Number(roomID) );
-  const rooms = (e) => {onSelect ({ rooms: e.target.value });
-};
+  const roomArray = getRoomData(); //roomArray innehåller all data från roomdata.js.
+  
+  const rooms = (room, e) => {
+   
+    onSelect({
+      roomType: room.title,
+      rooms: e.target.value
+    });
+  };
+
   return (
     <div className="p-5" style={{
         marginBottom: "20px"
@@ -24,7 +30,7 @@ export const RoomCard = ({onSelect}) => {
         </h2>
       <Row>
         {roomArray.map((room) => (   //Itererar över varje rum i listan roomArray och visar img, title, subtitle, description och text för varje hotell.
-        <Col md="4" sm="6" xl="4" className="p-3">  
+        <Col md="4" sm="6" xl="4" className="p-3" key={room.title}>  
           <Card>
             <Card.Img style={{ height: "200px" }} src={room.image} />
             <Card.Body style={{
@@ -47,13 +53,11 @@ export const RoomCard = ({onSelect}) => {
               <Card.Text style={{textAlign : "right", fontWeight: "bold"}}>Pris från {room.price} per person</Card.Text>
             </div>
 
-
-          {/*Kod från react-bootstrap biblioteket*/}
          
           <Form style= {{ display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
             <Form.Label>Antal rum</Form.Label>
-            <Form.Select onChange={rooms}
-            aria-label="Default select example" className="mb-3" controlId="exampleForm.ControlInput1" style={{
+            <Form.Select onChange={(e) => rooms(room, e)}
+            aria-label="Default select example" className="mb-3" controlId={`room-select-${room.title}`} style={{
             width: "80px"
             }}>
             <option>-</option>

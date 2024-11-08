@@ -8,8 +8,11 @@ import {CardDetails} from "./carddetails.jsx";
 import { PinkHero } from "./pinkhero";
 import { useParams } from 'react-router-dom';
 
+
 export function Payment({ selectedValue }) {
   const { hotelID } = useParams();
+  console.log("Hotel ID from URL:", hotelID); // Lägg till för att kontrollera
+  console.log("selected value:", selectedValue); 
 
   return (
     <div>
@@ -24,7 +27,7 @@ export function Payment({ selectedValue }) {
         </h2>
         {/*Renderar komponenterna PinkHero, PicAndInfo, Summery, PaymentDetails, CardDetails och ButtonsThree*/}
       <PicAndInfo hotelID={hotelID} />
-      <Summery hotelID={hotelID} selectedValue={ selectedValue }/>
+      <Summery hotelID={hotelID} selectedValue={selectedValue} />
       <PaymentDetails/>
       <CardDetails/>
       <ButtonsThree/>

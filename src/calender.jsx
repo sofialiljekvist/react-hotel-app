@@ -4,8 +4,13 @@ import Calendar from 'react-calendar'; //importerar kalender från react-bibliot
 import 'react-calendar/dist/Calendar.css'; // Importera styling för react kalendern
 
 
-export function Calender() {
-      const [date, setDate] = useState(new Date()); // Kod från react-biblioteket.
+export function Calender({ onSelect }) {
+    const [date, setDate] = useState(new Date()); // state för att hantera det valda datumet
+    const handleDateChange = (selectedDate) => {
+        setDate(selectedDate); // Uppdaterar datumet när ett datum väljs.
+        onSelect({ selectedDate }); // Skickar det valda datumet till app.js som hanterar valet och skickar det till payment så det kan skrivas ut i summery. 
+    };
+
     return (
 
     <div style={{
@@ -23,9 +28,9 @@ export function Calender() {
             }}>
             Välj datum
         </h2>
-        <Calendar //Kod från react-biblioteket
-            onChange={setDate}
-            value={date}
+        <Calendar //Kalenderkomponenten från react-calendar-biblioteket
+            onChange={handleDateChange} //kör funktionen handleDateChange.
+            value={date} //sätter valt datum som valt värde
             style={{ width: "100%"}} 
         />
     </div>

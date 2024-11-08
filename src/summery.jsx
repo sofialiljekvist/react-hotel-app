@@ -3,15 +3,14 @@
 import './App.css';
 import { useParams } from 'react-router-dom';
 import { getHotelData } from "./hoteldata.js";
-import { getRoomData } from './roomdata.js';
 
-export function Summery({ selectedValue }) {
-    const { hotelID, roomID } = useParams();
+
+export const Summery = ({ selectedValue }) => {
+    console.log("received selected value in summery", selectedValue);
+
+    const { hotelID } = useParams();
     const hotelArray = getHotelData(); 
     const hotel = hotelArray.find(hotel => hotel.hotelID=== Number(hotelID) );
-
-    const roomArray = getRoomData(); //roomArray innehåller all data från roomdata.js. 
-    const room = roomArray.find(room => room.roomID=== Number(roomID) );
   return (
         <div>
             <h2 style={{ 
@@ -37,9 +36,9 @@ export function Summery({ selectedValue }) {
                         <tr>
                             <td>Beställare</td>    
                             <ul>
-                                <li>Maria Svensson</li>
-                                <li>maria.svensson@gmail.com</li>
-                                <li>+46 79 32 54 588 </li>
+                            <li>Namn: {selectedValue.name}</li>
+                            <li>E-post: {selectedValue.email}</li>
+                            <li>Telefonnummer: {selectedValue.phone}</li>
                             </ul>
                         </tr>
 
@@ -49,15 +48,15 @@ export function Summery({ selectedValue }) {
                                 <li>Hotell: { hotel.title}</li>
                                 <li>Avreseort: {selectedValue.departure }</li>
                                 <li>Antal personer: {selectedValue.persons }</li>
-                                <li>Rumstyp: {room.title}</li>
-                                <li>Antal rum: {selectedValue.rooms} </li>
+                                <li>Rumstyp: {selectedValue.roomType }</li>
+                            <li>Antal rum: {selectedValue.rooms }</li>
                             </ul>
                         </tr>
 
                         <tr>
                             <td>Avresedatum</td>
                             <ul>
-                                <li>18 november 2024</li>
+                                <li>{selectedValue.selectedDate?.toLocaleDateString()}</li>
                             </ul>
                         </tr>
 

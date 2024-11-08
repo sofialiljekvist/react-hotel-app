@@ -3,8 +3,7 @@
 import Form from 'react-bootstrap/Form';
 
 export function TripDetails({onSelect}) {
-    const departure = (e) => {onSelect ({ departure: e.target.value });
-  };
+    const departure = (e) => {onSelect ({ departure: e.target.value })};
 
   const persons = (e) => {onSelect ({ persons: e.target.value });}
     return (
